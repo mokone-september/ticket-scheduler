@@ -1,16 +1,67 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Ticket Scheduler
 
-Currently, two official plugins are available:
+Ticket Scheduler is a simple and modern web application for scheduling and tracking tasks or tickets. Built with React, Vite, and Material UI (MUI), it provides an intuitive interface for adding tasks with a date picker, and displays scheduled tickets in a clean, responsive layout.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Add new tickets with a task name and date
+- Modern Material UI design
+- Date selection using MUI Date Picker
+- Instant feedback with notifications (success/error)
+- Responsive and centered layout
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Material UI (MUI)](https://mui.com/)
+- [@mui/x-date-pickers](https://mui.com/x/react-date-pickers/)
+- [dayjs](https://day.js.org/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or newer recommended)
+- npm
+
+### Installation
+
+1. Clone the repository:
+	```sh
+	git clone https://github.com/mokone-september/ticket-scheduler.git
+	cd ticket-scheduler
+	```
+2. Install dependencies:
+	```sh
+	npm install
+	```
+
+### Running the App
+
+Start the development server:
+
+```sh
+npm run dev
+```
+
+Open your browser and navigate to the local server address (usually http://localhost:5173).
+
+## Usage
+
+1. Enter a task name in the input field.
+2. Select a date using the date picker.
+3. Click "Add Ticket" to schedule the ticket.
+4. View all scheduled tickets in the list below.
+5. Notifications will appear for successful or invalid actions.
+
+## Project Structure
+
+- `src/components/TicketScheduling.jsx` — Main ticket scheduling component
+- `src/App.jsx` — App entry point
+- `public/` — Static assets
+
+## License
+
+This project is licensed under the MIT License.
