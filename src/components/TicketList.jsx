@@ -1,15 +1,33 @@
 import React from "react";
-import { List, ListItem, ListItemText } from "@mui/material";
+import {
+  List,
+  ListItem,
+  ListItemText,
+  IconButton,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import useTicketStore from "../store/useTicketStore";
 
 function TicketList({ tickets }) {
-  if (tickets.length === 0) {
-    return <p>No tickets scheduled yet.</p>;
-  }
+  const deleteTicket = useTicketStore((state) => state.deleteTicket);
 
   return (
     <List>
-      {tickets.map((t, i) => (
-        <ListItem key={i} divider>
+      {tickets.map((t) => (
+        <ListItem
+          key={t.id}
+          divider
+          secondaryAction={
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={() => deleteTicket(t.id)}
+              color="error"
+            >
+              <DeleteIcon />
+            </IconButton>
+          }
+        >
           <ListItemText primary={t.task} secondary={t.date} />
         </ListItem>
       ))}
