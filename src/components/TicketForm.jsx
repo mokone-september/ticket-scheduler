@@ -1,9 +1,20 @@
-import React from "react";
-import { Paper, Box, TextField, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, TextField, Button } from "@mui/material";
 
-function TicketForm({ task, date, setTask, setDate, addTicket }) {
+function TicketForm({ onAdd }) {
+  const [task, setTask] = useState("");
+  const [date, setDate] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!task || !date) return;
+    onAdd(task, date);
+    setTask("");
+    setDate("");
+  };
+
   return (
-    <Paper sx={{ p: 3, mb: 4 }}>
+    <form onSubmit={handleSubmit}>
       <Box display="flex" flexDirection="column" gap={2}>
         <TextField
           label="Task"
@@ -19,11 +30,11 @@ function TicketForm({ task, date, setTask, setDate, addTicket }) {
           onChange={(e) => setDate(e.target.value)}
           fullWidth
         />
-        <Button variant="contained" onClick={addTicket}>
+        <Button type="submit" variant="contained">
           Add Ticket
         </Button>
       </Box>
-    </Paper>
+    </form>
   );
 }
 

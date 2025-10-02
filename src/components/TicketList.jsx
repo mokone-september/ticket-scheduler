@@ -2,6 +2,10 @@ import React from "react";
 import { List, ListItem, ListItemText } from "@mui/material";
 
 function TicketList({ tickets }) {
+  if (tickets.length === 0) {
+    return <p>No tickets scheduled yet.</p>;
+  }
+
   return (
     <List>
       {tickets.map((t, i) => (

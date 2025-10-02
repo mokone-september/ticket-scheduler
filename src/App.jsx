@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Paper } from "@mui/material";
 import TicketForm from "./components/TicketForm";
 import TicketList from "./components/TicketList";
 
 function App() {
   const [tickets, setTickets] = useState([]);
-  const [task, setTask] = useState("");
-  const [date, setDate] = useState("");
 
-  const addTicket = () => {
-    if (!task || !date) return;
+  const addTicket = (task, date) => {
     setTickets([...tickets, { task, date }]);
-    setTask("");
-    setDate("");
   };
 
   return (
@@ -21,15 +16,13 @@ function App() {
         🎟 Ticket Scheduler
       </Typography>
 
-      <TicketForm
-        task={task}
-        date={date}
-        setTask={setTask}
-        setDate={setDate}
-        addTicket={addTicket}
-      />
+      <Paper sx={{ p: 3, mb: 4 }}>
+        <TicketForm onAdd={addTicket} />
+      </Paper>
 
-      <Typography variant="h6">Scheduled Tickets</Typography>
+      <Typography variant="h6" gutterBottom>
+        Scheduled Tickets
+      </Typography>
       <TicketList tickets={tickets} />
     </Container>
   );
