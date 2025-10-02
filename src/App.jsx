@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Container maxWidth="sm" sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold' }}>
         🎟 Ticket Scheduler
       </Typography>
 
