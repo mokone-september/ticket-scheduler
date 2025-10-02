@@ -1,4 +1,3 @@
-
 # Ticket Scheduler
 
 Ticket Scheduler is a simple and modern web application for scheduling and tracking tasks or tickets. Built with React, Vite, and Material UI (MUI), it provides an intuitive interface for adding tasks with a date picker, and displays scheduled tickets in a clean, responsive layout.
@@ -10,6 +9,8 @@ Ticket Scheduler is a simple and modern web application for scheduling and track
 - Date selection using MUI Date Picker
 - Instant feedback with notifications (success/error)
 - Responsive and centered layout
+- Global state management with Zustand
+- Local background image for improved performance
 
 ## Technologies Used
 
@@ -18,6 +19,7 @@ Ticket Scheduler is a simple and modern web application for scheduling and track
 - [Material UI (MUI)](https://mui.com/)
 - [@mui/x-date-pickers](https://mui.com/x/react-date-pickers/)
 - [dayjs](https://day.js.org/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
 
 ## Getting Started
 
@@ -29,14 +31,14 @@ Ticket Scheduler is a simple and modern web application for scheduling and track
 ### Installation
 
 1. Clone the repository:
-	```sh
-	git clone https://github.com/mokone-september/ticket-scheduler.git
-	cd ticket-scheduler
-	```
+    ```sh
+    git clone https://github.com/mokone-september/ticket-scheduler.git
+    cd ticket-scheduler
+    ```
 2. Install dependencies:
-	```sh
-	npm install
-	```
+    ```sh
+    npm install
+    ```
 
 ### Running the App
 
@@ -56,11 +58,21 @@ Open your browser and navigate to the local server address (usually http://local
 4. View all scheduled tickets in the list below.
 5. Notifications will appear for successful or invalid actions.
 
+## State Management
+
+This project uses [Zustand](https://zustand-demo.pmnd.rs/) for global state management. All tickets and notification states are managed centrally, making the app scalable and easy to maintain.
+
+## Background Image
+
+A local background image (`public/bg.jpg`) is used for better performance and reliability. You can replace this image with your own by placing a new file at `public/bg.jpg`.
+
 ## Project Structure
 
-- `src/components/TicketScheduling.jsx` — Main ticket scheduling component
-- `src/App.jsx` — App entry point
-- `public/` — Static assets
+- `src/components/TicketForm.jsx` — Ticket creation form
+- `src/components/TicketList.jsx` — List of scheduled tickets
+- `src/store/useTicketStore.js` — Zustand store for global state
+- `src/App.jsx` — App entry point and layout
+- `public/` — Static assets (including background image)
 
 ## License
 
