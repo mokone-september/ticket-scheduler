@@ -30,31 +30,44 @@ function App() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold' }}>
-        🎟 Ticket Scheduler
-      </Typography>
+    <div
+      style={{
+        minHeight: '100vh',
+        backgroundImage: 'url(/bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Container maxWidth="sm" sx={{ mt: 4, bgcolor: 'rgba(255,255,255,0.85)', borderRadius: 2, boxShadow: 3, p: 2 }}>
+        <Typography variant="h4" gutterBottom align="center" sx={{ fontWeight: 'bold' }}>
+          🎟 Ticket Scheduler
+        </Typography>
 
-      <Paper sx={{ p: 3, mb: 4 }}>
-        <TicketForm onAdd={handleAddTicket} />
-      </Paper>
+        <Paper sx={{ p: 3, mb: 4 }}>
+          <TicketForm onAdd={handleAddTicket} />
+        </Paper>
 
-      <Typography variant="h6" gutterBottom>
-        Scheduled Tickets
-      </Typography>
-      <TicketList tickets={tickets} />
+        <Typography variant="h6" gutterBottom>
+          Scheduled Tickets
+        </Typography>
+        <TicketList tickets={tickets} />
 
-      <Snackbar open={open} autoHideDuration={2000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          Ticket added successfully!
-        </Alert>
-      </Snackbar>
-      <Snackbar open={error} autoHideDuration={2000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
-        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-          Please fill in all fields.
-        </Alert>
-      </Snackbar>
-    </Container>
+        <Snackbar open={open} autoHideDuration={2000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+          <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+            Ticket added successfully!
+          </Alert>
+        </Snackbar>
+        <Snackbar open={error} autoHideDuration={2000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+            Please fill in all fields.
+          </Alert>
+        </Snackbar>
+      </Container>
+    </div>
   );
 }
 
