@@ -2,19 +2,22 @@ import React, { useState } from "react";
 import { Container, Typography, Paper, Snackbar, Alert } from "@mui/material";
 import TicketForm from "./components/TicketForm";
 import TicketList from "./components/TicketList";
+import useTicketStore from "./store/useTicketStore";
 
 
 function App() {
-  const [tickets, setTickets] = useState([]);
+  const tickets = useTicketStore((state) => state.tickets);
+  const addTicket = useTicketStore((state) => state.addTicket);
+  // const clearTickets = useTicketStore((state) => state.clearTickets);
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
 
-  const addTicket = (task, date) => {
+  const handleAddTicket = (task, date) => {
     if (!task || !date) {
       setError(true);
       return;
     }
-    setTickets([...tickets, { task, date }]);
+    addTicket(task, date);
     setOpen(true);
   };
 
@@ -33,7 +36,7 @@ function App() {
       </Typography>
 
       <Paper sx={{ p: 3, mb: 4 }}>
-        <TicketForm onAdd={addTicket} />
+        <TicketForm onAdd={handleAddTicket} />
       </Paper>
 
       <Typography variant="h6" gutterBottom>

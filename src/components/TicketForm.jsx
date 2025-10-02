@@ -10,8 +10,7 @@ function TicketForm({ onAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!task || !date) return;
-    onAdd(task, date.format('YYYY-MM-DD'));
+    onAdd(task, date ? date.format('YYYY-MM-DD') : "");
     setTask("");
     setDate(null);
   };
